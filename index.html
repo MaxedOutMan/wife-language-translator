@@ -188,13 +188,23 @@
             <span class="example-chip" onclick="tryExample(this)">I'm fine</span>
             <span class="example-chip" onclick="tryExample(this)">Do what you want</span>
             <span class="example-chip" onclick="tryExample(this)">We need to talk</span>
-            <span class="example-chip" onclick="tryExample(this)">It's okay</span>
             <span class="example-chip" onclick="tryExample(this)">Nothing's wrong</span>
-            <span class="example-chip" onclick="tryExample(this)">I don't care</span>
+            <span class="example-chip" onclick="tryExample(this)">Forget it</span>
+            <span class="example-chip" onclick="tryExample(this)">I'm not mad</span>
             <span class="example-chip" onclick="tryExample(this)">Who was that?</span>
             <span class="example-chip" onclick="tryExample(this)">I just think it's funny how...</span>
+            <span class="example-chip" onclick="tryExample(this)">Do I look fat in this?</span>
+            <span class="example-chip" onclick="tryExample(this)">Where do you want to eat?</span>
             <span class="example-chip" onclick="tryExample(this)">Five minutes</span>
-            <span class="example-chip" onclick="tryExample(this)">Are you really wearing that?</span>
+            <span class="example-chip" onclick="tryExample(this)">We'll see</span>
+            <span class="example-chip" onclick="tryExample(this)">K</span>
+            <span class="example-chip" onclick="tryExample(this)">I'll do it myself</span>
+            <span class="example-chip" onclick="tryExample(this)">Remember when you said...</span>
+            <span class="example-chip" onclick="tryExample(this)">It's not a big deal</span>
+            <span class="example-chip" onclick="tryExample(this)">Noticed you liked her photo</span>
+            <span class="example-chip" onclick="tryExample(this)">When you get a chance</span>
+            <span class="example-chip" onclick="tryExample(this)">My friend's husband...</span>
+            <span class="example-chip" onclick="tryExample(this)">I don't want anything for my birthday</span>
         </div>
     </div>
 
@@ -307,6 +317,198 @@
                 translation: "I already know the right answer. This is your chance to prove we're on the same wavelength. Choose poorly at your own risk.",
                 level: "orange",
                 levelText: "Danger Level: ELEVATED"
+            },
+            {
+                patterns: ["i was just asking", "just asking"],
+                translation: "I was not just asking. I was making a point disguised as a question, and you missed it completely.",
+                level: "orange",
+                levelText: "Danger Level: ELEVATED"
+            },
+            {
+                patterns: ["forget it", "just forget it"],
+                translation: "Do NOT forget it. I want you to think about this for the rest of the day. I'm done explaining, but this is far from over.",
+                level: "red",
+                levelText: "Danger Level: HIGH"
+            },
+            {
+                patterns: ["you don't have to", "you dont have to", "you do not have to"],
+                translation: "You absolutely have to. I'm being polite. If you take me at my word right now, you will regret it.",
+                level: "red",
+                levelText: "Danger Level: HIGH"
+            },
+            {
+                patterns: ["i saw the funniest thing", "funniest thing today"],
+                translation: "This story is going to take a while. Sit down, make eye contact, and laugh at the right parts. There will be a test.",
+                level: "green",
+                levelText: "Danger Level: LOW"
+            },
+            {
+                patterns: ["it doesn't matter", "it doesnt matter", "it does not matter"],
+                translation: "It matters more than anything we've discussed this week. I'm just too exhausted to keep explaining it to someone who should already understand.",
+                level: "red",
+                levelText: "Danger Level: HIGH"
+            },
+            {
+                patterns: ["i don't want anything for my birthday", "don't get me anything", "dont get me anything", "i dont want anything"],
+                translation: "I want something thoughtful and specific. The fact that I have to tell you what it is defeats the entire purpose. Figure it out.",
+                level: "red",
+                levelText: "Danger Level: EXTREME"
+            },
+            {
+                patterns: ["we never go anywhere", "we don't go anywhere", "we dont go anywhere"],
+                translation: "Plan something. Soon. Not a sports bar. Somewhere I can wear a nice outfit and post a photo that makes my friends jealous.",
+                level: "yellow",
+                levelText: "Danger Level: MODERATE"
+            },
+            {
+                patterns: ["your mom called", "your mother called"],
+                translation: "Your mom called, and she said something that I need to discuss with you, and you'd better be on my side when I do.",
+                level: "orange",
+                levelText: "Danger Level: ELEVATED"
+            },
+            {
+                patterns: ["i already told you", "i told you this", "i've already told you"],
+                translation: "I told you this at least twice. The fact that you don't remember proves you don't listen to me. This is now about more than the original topic.",
+                level: "red",
+                levelText: "Danger Level: HIGH"
+            },
+            {
+                patterns: ["where do you want to eat", "what do you want to eat", "where should we eat"],
+                translation: "I already know where I want to eat. I need you to guess correctly so it feels like your idea. Wrong answers will be rejected until you get there.",
+                level: "yellow",
+                levelText: "Danger Level: MODERATE"
+            },
+            {
+                patterns: ["i'll do it myself", "ill do it myself", "i will do it myself"],
+                translation: "You had your chance to help and you blew it. Now I'm doing it alone, and you will hear about this for weeks.",
+                level: "red",
+                levelText: "Danger Level: HIGH"
+            },
+            {
+                patterns: ["that's interesting", "thats interesting", "that is interesting"],
+                translation: "That is not interesting at all. I'm being kind because I love you, but please wrap it up.",
+                level: "green",
+                levelText: "Danger Level: LOW"
+            },
+            {
+                patterns: ["we'll see", "well see", "we will see"],
+                translation: "No. The answer is no. I'm just not saying it yet because I want you to hold on to hope before I take it away.",
+                level: "yellow",
+                levelText: "Danger Level: MODERATE"
+            },
+            {
+                patterns: ["i'm not mad", "im not mad", "i am not mad"],
+                translation: "I am furious. I'm just collecting my thoughts so I can dismantle your argument with surgical precision when I'm ready.",
+                level: "red",
+                levelText: "Danger Level: EXTREME"
+            },
+            {
+                patterns: ["it's not about the dishes", "its not about the dishes", "not about the dishes"],
+                translation: "It is partly about the dishes, but mostly about a pattern of behavior that the dishes represent. Buckle up.",
+                level: "orange",
+                levelText: "Danger Level: ELEVATED"
+            },
+            {
+                patterns: ["do i look fat", "does this make me look fat", "do i look fat in this"],
+                translation: "Tell me I look amazing. There is only one correct answer. This is not a discussion, a debate, or an opportunity for honesty.",
+                level: "red",
+                levelText: "Danger Level: EXTREME"
+            },
+            {
+                patterns: ["i just want to stay in", "let's stay in", "lets stay in", "stay in tonight"],
+                translation: "I want you to stay in with me. Not stay in and play video games in another room. With me. On the couch. Talking.",
+                level: "green",
+                levelText: "Danger Level: LOW"
+            },
+            {
+                patterns: ["my friend's husband", "my friends husband", "her husband"],
+                translation: "Whatever her friend's husband did, you now need to do the same thing or better. This is a benchmark, not a story.",
+                level: "orange",
+                levelText: "Danger Level: ELEVATED"
+            },
+            {
+                patterns: ["when you get a chance", "whenever you get a chance", "if you get a chance"],
+                translation: "Right now. I mean right now. \"When you get a chance\" is a courtesy I'm extending so you feel like you had a choice.",
+                level: "yellow",
+                levelText: "Danger Level: MODERATE"
+            },
+            {
+                patterns: ["i thought you were going to", "thought you were gonna", "weren't you going to"],
+                translation: "You told me you would do this and you didn't. I'm keeping a record. This is being added to the file.",
+                level: "orange",
+                levelText: "Danger Level: ELEVATED"
+            },
+            {
+                patterns: ["i guess", "i guess so"],
+                translation: "I disagree completely, but I don't have the energy to fight about it. Don't mistake my silence for agreement.",
+                level: "orange",
+                levelText: "Danger Level: ELEVATED"
+            },
+            {
+                patterns: ["noticed you liked her photo", "liked her photo", "liked her post", "liked her picture"],
+                translation: "I have conducted a full investigation and this is the opening statement. Your defense will need to be flawless.",
+                level: "red",
+                levelText: "Danger Level: EXTREME"
+            },
+            {
+                patterns: ["lol"],
+                translation: "I did not laugh. I am acknowledging your message while doing something more important. Do not send a follow-up.",
+                level: "green",
+                levelText: "Danger Level: LOW"
+            },
+            {
+                patterns: [" k", "\"k\"", "k."],
+                translation: "This is the most dangerous text message in the English language. Something is very wrong. Call me immediately. Actually, don't call. Come home.",
+                level: "red",
+                levelText: "Danger Level: EXTREME"
+            },
+            {
+                patterns: ["i need some space", "need some space", "give me some space"],
+                translation: "Give me exactly enough space to miss you, but not so much that I think you don't care. This is a precision operation.",
+                level: "orange",
+                levelText: "Danger Level: ELEVATED"
+            },
+            {
+                patterns: ["i'm going to bed", "im going to bed", "i am going to bed", "going to bed"],
+                translation: "I'm going to bed angry. If you're smart, you'll come check on me in ten minutes with an apology or a snack.",
+                level: "yellow",
+                levelText: "Danger Level: MODERATE"
+            },
+            {
+                patterns: ["can you watch the kids", "watch the kids for a bit", "watch the kids"],
+                translation: "I am leaving this house. I don't know when I'll be back. Do not call me unless there is blood or fire.",
+                level: "green",
+                levelText: "Danger Level: LOW"
+            },
+            {
+                patterns: ["i had lunch with", "had lunch with her", "had coffee with"],
+                translation: "I had lunch with her and we talked about you. Everything you've done recently has been reviewed by a committee. I'm now delivering the findings.",
+                level: "orange",
+                levelText: "Danger Level: ELEVATED"
+            },
+            {
+                patterns: ["remember when you said", "remember when you told me", "you once said"],
+                translation: "I am about to use your own words against you with devastating accuracy. I have a photographic memory for things you wish I'd forget.",
+                level: "red",
+                levelText: "Danger Level: EXTREME"
+            },
+            {
+                patterns: ["you always do this", "you always", "you never"],
+                translation: "This specific thing you just did has triggered a comprehensive review of every similar offense in our entire relationship. Each one will now be addressed.",
+                level: "red",
+                levelText: "Danger Level: HIGH"
+            },
+            {
+                patterns: ["i don't want to fight", "i dont want to fight", "i do not want to fight"],
+                translation: "I am already fighting. This is just the opening statement letting you know the trial has begun. Your plea doesn't matter.",
+                level: "red",
+                levelText: "Danger Level: HIGH"
+            },
+            {
+                patterns: ["it's not a big deal", "its not a big deal", "not a big deal"],
+                translation: "It is the biggest deal. I'm minimizing it right now so that when I bring it up again later, you can't say I was overreacting, because look how calm I was the first time.",
+                level: "red",
+                levelText: "Danger Level: HIGH"
             }
         ];
 
