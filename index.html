@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wife Language Translator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=League+Spartan:wght@300;400;500;600;700&family=Yellowtail&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,105 +15,110 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #ffecd2 100%);
+            font-family: 'League Spartan', sans-serif;
+            background: #121317;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            color: #e4e7f4;
         }
 
         .container {
-            background: white;
+            background: #2e2e36;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            max-width: 650px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            max-width: 680px;
             width: 100%;
             padding: 40px;
             text-align: center;
         }
 
         h1 {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 8px;
+            font-family: 'Alata', sans-serif;
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        h1 .accent {
+            font-family: 'Yellowtail', cursive;
+            color: #de303d;
+            font-weight: 400;
         }
 
         .subtitle {
-            color: #888;
+            color: #e4e7f4;
             font-size: 0.95rem;
             margin-bottom: 30px;
-        }
-
-        .input-section {
-            margin-bottom: 20px;
+            font-weight: 300;
         }
 
         label {
             display: block;
             text-align: left;
             font-weight: 600;
-            color: #555;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        textarea {
-            width: 100%;
-            padding: 14px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-family: inherit;
-            resize: vertical;
-            min-height: 80px;
-            transition: border-color 0.3s;
-        }
-
-        textarea:focus {
-            outline: none;
-            border-color: #ff9a9e;
+            color: #e4e7f4;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            font-family: 'League Spartan', sans-serif;
         }
 
         select {
             width: 100%;
-            padding: 12px 14px;
-            border: 2px solid #e0e0e0;
+            padding: 14px 16px;
+            border: 2px solid #0c6175;
             border-radius: 12px;
             font-size: 1rem;
-            font-family: inherit;
-            background: white;
-            color: #555;
+            font-family: 'League Spartan', sans-serif;
+            background: #121317;
+            color: #e4e7f4;
             cursor: pointer;
             transition: border-color 0.3s;
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231aafe2' stroke-width='2' fill='none'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 14px center;
+            background-position: right 16px center;
         }
 
         select:focus {
             outline: none;
-            border-color: #ff9a9e;
+            border-color: #1aafe2;
+        }
+
+        select optgroup {
+            font-weight: 700;
+            color: #de303d;
+            background: #2e2e36;
+            font-family: 'League Spartan', sans-serif;
+        }
+
+        select option {
+            font-weight: 400;
+            color: #e4e7f4;
+            background: #121317;
+            padding: 6px;
         }
 
         button {
-            background: linear-gradient(135deg, #ff9a9e, #f67280);
+            background: #de303d;
             color: white;
             border: none;
-            padding: 14px 40px;
+            padding: 14px 44px;
             font-size: 1.1rem;
             font-weight: 600;
+            font-family: 'League Spartan', sans-serif;
             border-radius: 50px;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            margin: 20px 0;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            margin: 24px 0 10px 0;
         }
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(246, 114, 128, 0.4);
+            box-shadow: 0 8px 25px rgba(222, 48, 61, 0.45);
+            background: #c4272f;
         }
 
         button:active {
@@ -118,580 +126,1092 @@
         }
 
         .result-section {
-            background: #fff5f5;
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 10px;
+            background: #121317;
+            border: 1px solid #0c6175;
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 16px;
             display: none;
+            text-align: left;
         }
 
         .result-section.visible {
             display: block;
         }
 
-        .result-label {
-            font-weight: 600;
-            color: #f67280;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            text-align: left;
+        .said-section {
+            margin-bottom: 16px;
         }
 
-        .result-text {
+        .result-label {
+            font-weight: 600;
+            color: #1aafe2;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .said-text {
+            font-family: 'Yellowtail', cursive;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .translation-text {
             font-size: 1.05rem;
-            color: #333;
-            line-height: 1.6;
-            text-align: left;
+            color: #e4e7f4;
+            line-height: 1.65;
+            font-weight: 400;
         }
 
         .warning-level {
             display: inline-block;
-            margin-top: 12px;
-            padding: 6px 16px;
+            margin-top: 16px;
+            padding: 7px 18px;
             border-radius: 20px;
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            font-family: 'League Spartan', sans-serif;
         }
 
-        .level-green { background: #d4edda; color: #155724; }
-        .level-yellow { background: #fff3cd; color: #856404; }
-        .level-orange { background: #ffe0cc; color: #a84300; }
-        .level-red { background: #f8d7da; color: #721c24; }
+        .level-none { background: #6cc24a; color: #ffffff; }
+        .level-low { background: #1aafe2; color: #ffffff; }
+        .level-moderate { background: #f8a700; color: #ffffff; }
+        .level-elevated { background: #a50722; color: #ffffff; }
+        .level-high { background: #de303d; color: #ffffff; }
+        .level-extreme {
+            background: #de303d;
+            color: #ffffff;
+            animation: pulse-glow 1.5s ease-in-out infinite;
+        }
+        .level-checktone { background: #f8a700; color: #ffffff; }
+        .level-unknown { background: #2e2e36; color: #e4e7f4; border: 1px solid #e4e7f4; }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 6px rgba(222, 48, 61, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(222, 48, 61, 0.9), 0 0 40px rgba(222, 48, 61, 0.4);
+            }
+        }
 
         .response-section {
-            background: #eaf7ee;
-            border-radius: 10px;
-            padding: 14px 16px;
-            margin-top: 14px;
-            text-align: left;
+            background: rgba(108, 194, 74, 0.1);
+            border: 1px solid rgba(108, 194, 74, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
         }
 
         .response-label {
             font-weight: 600;
-            color: #2d8a4e;
+            color: #6cc24a;
             margin-bottom: 6px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .response-text {
             font-size: 1rem;
-            color: #333;
-            line-height: 1.5;
+            color: #e4e7f4;
+            line-height: 1.55;
+            font-weight: 400;
         }
 
-        .or-divider {
-            color: #888;
-            font-size: 0.9rem;
-            margin: 10px 0;
-            text-align: center;
-        }
-
-        .dropdown-section {
-            margin-bottom: 10px;
+        .footer {
+            margin-top: 24px;
+            color: #555;
+            font-size: 0.8rem;
+            font-weight: 300;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Wife Language Translator</h1>
+        <h1>Wife Language <span class="accent">Translator</span></h1>
         <p class="subtitle">Decode what she <em>really</em> means</p>
 
-        <div class="input-section">
-            <label for="input">What did she say?</label>
-            <textarea id="input" placeholder='Type what she said...'></textarea>
-        </div>
-
-        <div class="or-divider">-- or pick one --</div>
-
-        <div class="dropdown-section">
-            <select id="phraseSelect" onchange="selectPhrase()">
-                <option value="">Choose a common phrase...</option>
+        <div>
+            <label for="phraseSelect">What did she say?</label>
+            <select id="phraseSelect">
+                <option value="">Choose a phrase...</option>
             </select>
         </div>
 
         <button onclick="translate()">Translate</button>
 
         <div class="result-section" id="result">
+            <div class="said-section">
+                <div class="result-label">What she said:</div>
+                <div class="said-text" id="saidText"></div>
+            </div>
+
             <div class="result-label">What she really means:</div>
-            <div class="result-text" id="translation"></div>
+            <div class="translation-text" id="translation"></div>
             <div id="warning"></div>
 
-            <div class="response-section" id="responseSection">
-                <div class="response-label">Correct response:</div>
+            <div class="response-section">
+                <div class="response-label">Correct Response:</div>
                 <div class="response-text" id="responseText"></div>
             </div>
         </div>
+
+        <div class="footer">For entertainment purposes only. Results not guaranteed. Good luck.</div>
     </div>
 
     <script>
-        const translations = [
+        const categories = [
             {
-                label: "I'm fine",
-                patterns: ["i'm fine", "im fine", "i am fine"],
-                translation: "I am absolutely NOT fine. You should already know what's wrong, and the fact that you have to ask is making it worse.",
-                response: "\"I can tell something's bothering you, and I care. I'm here whenever you're ready to talk about it.\" Then sit down nearby and wait. Do NOT go back to what you were doing.",
-                level: "red",
-                levelText: "Danger Level: HIGH"
+                name: "Classic Danger Zone",
+                entries: [
+                    {
+                        label: "I'm fine",
+                        translation: "I am absolutely NOT fine. You should already know what's wrong, and the fact that you have to ask is making it worse.",
+                        response: "\"I can tell something's bothering you. I'm here. Talk to me.\"",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "Do what you want",
+                        translation: "This is not permission. This is a test. Choose wisely, because there IS a correct answer and it is NOT what you want to do.",
+                        response: "\"What I want is to do whatever makes you happy. What are you thinking?\"",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "Nothing's wrong",
+                        translation: "Everything is wrong. I need you to figure out what it is on your own as proof that you actually pay attention to me.",
+                        response: "\"I can see something's off. I'm not going anywhere until we talk about it.\"",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "It's okay",
+                        translation: "It is NOT okay. I'm giving you a chance to reconsider your actions before this escalates significantly.",
+                        response: "\"It doesn't seem okay. What can I do to fix this?\"",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "I don't care",
+                        translation: "I DO care. Very much. But I want you to make the right decision on your own without me having to spell it out.",
+                        response: "Pause. Think about what she'd actually want. Then pick that.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "Whatever",
+                        translation: "This argument is over because I've decided I'm right. Continuing to discuss this would be unwise.",
+                        response: "Let it go. Bring her a peace offering in about 20 minutes.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "Forget it",
+                        translation: "Do NOT forget it. I want you to think about this for the rest of the day. I'm done explaining, but this is far from over.",
+                        response: "\"No, I don't want to forget it. Tell me. I'm listening this time.\"",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "I'm not mad",
+                        translation: "I am furious. I'm just collecting my thoughts so I can dismantle your argument with surgical precision when I'm ready.",
+                        response: "Do not relax. Prepare your defense. Actually, just apologize now.",
+                        level: "extreme",
+                        levelText: "Danger Level: EXTREME"
+                    },
+                    {
+                        label: "It doesn't matter",
+                        translation: "It matters more than anything we've discussed this week. I'm just too exhausted to keep explaining it to someone who should already understand.",
+                        response: "\"It clearly matters to you, which means it matters to me. Help me understand.\"",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "I guess",
+                        translation: "I disagree completely, but I don't have the energy to fight about it. Don't mistake my silence for agreement.",
+                        response: "\"That doesn't sound like a yes. What would you actually prefer?\"",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "It's not a big deal",
+                        translation: "It is the biggest deal. I'm minimizing it right now so that when I bring it up again later, you can't say I was overreacting, because look how calm I was the first time.",
+                        response: "\"If it's on your mind at all, it's a big deal to me. Let's talk about it.\"",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "I don't want to fight",
+                        translation: "I am already fighting. This is just the opening statement letting you know the trial has begun.",
+                        response: "\"Then let's not fight. I want to hear what's on your mind.\"",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "You always do this",
+                        translation: "This specific thing you just did has triggered a comprehensive review of every similar offense in our entire relationship. Each one will now be addressed.",
+                        response: "Don't say \"I don't ALWAYS do it.\" That makes it worse. Say \"You're right, I need to be better about that.\"",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "I was just asking",
+                        translation: "I was not just asking. I was making a point disguised as a question, and you missed it completely.",
+                        response: "Rewind. Think about what she actually asked. There's a message buried in it.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "You don't have to",
+                        translation: "You absolutely have to. I'm being polite. If you take me at my word right now, you will regret it.",
+                        response: "\"I want to.\" Then do it immediately.",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    }
+                ]
             },
             {
-                label: "Do what you want",
-                patterns: ["do what you want", "do whatever you want"],
-                translation: "This is not permission. This is a test. Choose wisely, because there IS a correct answer and it is NOT what you want to do.",
-                response: "\"Actually, I'd rather do [the thing she clearly wants].\" If unsure, say: \"You know what, let's do what you'd enjoy. What sounds good to you?\"",
-                level: "red",
-                levelText: "Danger Level: HIGH"
+                name: "Investigations & Interrogations",
+                entries: [
+                    {
+                        label: "Who was that?",
+                        translation: "I already know exactly who that was. I'm giving you one chance to be honest. Choose your next words very carefully.",
+                        response: "Full honesty. Immediately. With context. Leave nothing out.",
+                        level: "extreme",
+                        levelText: "Danger Level: EXTREME"
+                    },
+                    {
+                        label: "I just think it's funny how...",
+                        translation: "Nothing about this is funny. I am about to present a devastating argument and you will not recover easily.",
+                        response: "Sit down. Listen. Do not interrupt. Do not laugh.",
+                        level: "extreme",
+                        levelText: "Danger Level: EXTREME"
+                    },
+                    {
+                        label: "Noticed you liked her photo",
+                        translation: "I have conducted a full investigation and this is the opening statement. Your defense will need to be flawless.",
+                        response: "There is no correct response. You should not have liked the photo.",
+                        level: "extreme",
+                        levelText: "Danger Level: EXTREME"
+                    },
+                    {
+                        label: "Remember when you said...?",
+                        translation: "I am about to use your own words against you with devastating accuracy. I have a photographic memory for things you wish I'd forget.",
+                        response: "Accept that whatever you said is now evidence. Don't deny saying it.",
+                        level: "extreme",
+                        levelText: "Danger Level: EXTREME"
+                    },
+                    {
+                        label: "I already told you this",
+                        translation: "I told you this at least twice. The fact that you don't remember proves you don't listen to me. This is now about more than the original topic.",
+                        response: "Do NOT say \"when?\" Say \"You're right, I'm sorry. Tell me again, I'm paying full attention.\"",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "I thought you were going to...",
+                        translation: "You told me you would do this and you didn't. I'm keeping a record. This is being added to the file.",
+                        response: "Don't make excuses. Say \"You're right, I dropped the ball. I'm on it now.\"",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "So who's going to be there?",
+                        translation: "I need a full guest list with names, relationship histories, and any relevant background before I approve this outing.",
+                        response: "Provide the full roster. Proactively mention that the friend who always causes trouble will NOT be there.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "What did you guys talk about?",
+                        translation: "I need a debrief. Certain topics are of particular interest to me, and if you skip over them, I will know.",
+                        response: "Give a real answer. \"Nothing\" is never the right response.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "How much did that cost?",
+                        translation: "I already have a general idea of what that costs, and I'm giving you a chance to come clean before I check the bank account.",
+                        response: "Tell the truth. Round up, not down. She's going to look.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "Is that what you told her?",
+                        translation: "I have received intelligence from my network and your version of events is about to be cross-referenced. Discrepancies will be noted.",
+                        response: "Tell the same story you told before. If you can't remember what you said, that's the problem.",
+                        level: "extreme",
+                        levelText: "Danger Level: EXTREME"
+                    },
+                    {
+                        label: "When did you get home last night?",
+                        translation: "I know exactly when you got home. I was awake. This is a honesty checkpoint.",
+                        response: "Give the exact time. She was watching the clock.",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "Why is she texting you?",
+                        translation: "This is not a casual question. I need a full explanation with context, history, and a satisfying reason that this person has your phone number.",
+                        response: "Show her the conversation. Immediately. Without being asked twice.",
+                        level: "extreme",
+                        levelText: "Danger Level: EXTREME"
+                    }
+                ]
             },
             {
-                label: "We need to talk",
-                patterns: ["we need to talk"],
-                translation: "Something serious is on my mind. Clear your schedule, put your phone down, and give me your full attention. This is not optional.",
-                response: "\"Okay, I'm all yours.\" Put everything down. Sit facing her. Make eye contact. Do not check your phone. Do not offer solutions yet — just listen first.",
-                level: "orange",
-                levelText: "Danger Level: ELEVATED"
+                name: "Decisions & Plans",
+                entries: [
+                    {
+                        label: "We need to talk",
+                        translation: "Something serious is on my mind. Clear your schedule, put your phone down, and give me your full attention. This is not optional.",
+                        response: "\"Okay. I'm all yours. What's going on?\"",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "We should... / Maybe we should...",
+                        translation: "We ARE going to. This is not a suggestion. This is a decision that has already been made.",
+                        response: "\"That sounds great. When do you want to start?\"",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "It's up to you / Your call",
+                        translation: "I already know the right answer. This is your chance to prove we're on the same wavelength. Choose poorly at your own risk.",
+                        response: "Pick what you think SHE wants. If you're wrong, regroup quickly.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "Where do you want to eat?",
+                        translation: "I already know where I want to eat. I need you to guess correctly so it feels like your idea. Wrong answers will be rejected until you get there.",
+                        response: "Name three places you know she likes. Let her \"pick\" from your suggestions.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "We'll see",
+                        translation: "No. The answer is no. I'm just not saying it yet because I want you to hold on to hope before I take it away.",
+                        response: "This means no. Adjust your expectations now and save yourself the disappointment.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "I don't care where we go",
+                        translation: "I have very specific requirements for where we go, but I want you to figure them out. Suggest something thoughtful or suffer the consequences.",
+                        response: "Pick somewhere nice that you know she's mentioned wanting to try.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "What do you think about...?",
+                        translation: "I have already made up my mind. I'm asking for your agreement, not your opinion. Read the room before you answer.",
+                        response: "Ask a few questions first to figure out what she's already decided, then agree with it.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "We need to redo the...",
+                        translation: "This project you thought was finished? It's not. My standards have not been met and we are starting over. Resistance is futile.",
+                        response: "\"What were you thinking? I want to get it right this time.\"",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "Let me think about it",
+                        translation: "I'm going to say no, but I need time to build my case so it sounds like a thoughtful decision instead of a flat rejection.",
+                        response: "Give her space. Don't ask again for at least 48 hours.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "I was thinking we could...",
+                        translation: "We are doing this. I'm phrasing it as a thought so you feel included in the decision, but the reservation is already made.",
+                        response: "\"I love that idea.\" Because the train has left the station.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    }
+                ]
             },
             {
-                label: "It's okay",
-                patterns: ["it's okay", "its okay", "it is okay"],
-                translation: "It is NOT okay. I'm giving you a chance to reconsider your actions before this escalates significantly.",
-                response: "\"I don't think it is okay, and I'm sorry. Can we talk about what's really going on?\" Acknowledge what you did wrong before she has to spell it out.",
-                level: "red",
-                levelText: "Danger Level: HIGH"
+                name: "Time & Logistics",
+                entries: [
+                    {
+                        label: "Five minutes",
+                        translation: "I will be ready in 25 to 45 minutes. Do NOT rush me. Use this time to wait patiently and without complaint.",
+                        response: "Sit down. You have time to check the scores.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "I'm almost ready",
+                        translation: "I have not started doing my hair yet. We are nowhere close to leaving. Find something to do quietly.",
+                        response: "Do not pace near the door. Do not jingle your keys. Do not mention the time.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "When you get a chance",
+                        translation: "Right now. I mean right now. \"When you get a chance\" is a courtesy I'm extending so you feel like you had a choice.",
+                        response: "Get up and do it now. \"When you get a chance\" has an expiration of about 90 seconds.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "We should leave by...",
+                        translation: "We needed to leave ten minutes before whatever time I just said. I've already built in a buffer for your delays, and you're using it up.",
+                        response: "Be ready fifteen minutes before the time she gave you.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "What time will you be home?",
+                        translation: "I am planning something around your arrival, and I need a precise answer. Vague estimates are not acceptable. If you're late, text me BEFORE the deadline, not after.",
+                        response: "Give a specific time. Then be home five minutes early.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "I'll be ready in a sec",
+                        translation: "There is no unit of time that accurately describes how long this will take. It is longer than a second. It may be longer than an hour. Do not ask follow-up questions.",
+                        response: "Smile. Find a comfortable seat. Turn the car off.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "Can you come here for a second?",
+                        translation: "This will not take a second. You are about to be assigned a task, given a talk, or shown something that requires your full attention and possibly heavy lifting.",
+                        response: "Go immediately. Leave your phone behind. Bring a good attitude.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    }
+                ]
             },
             {
-                label: "Nothing's wrong",
-                patterns: ["nothing's wrong", "nothings wrong", "nothing is wrong"],
-                translation: "Everything is wrong. I need you to figure out what it is on your own as proof that you actually pay attention to me.",
-                response: "\"I can see something's up, and I want to understand. Is it about [educated guess based on recent events]?\" A wrong but thoughtful guess is better than walking away.",
-                level: "red",
-                levelText: "Danger Level: HIGH"
+                name: "Family & Social",
+                entries: [
+                    {
+                        label: "Your mom called",
+                        translation: "Your mom called, and she said something that I need to discuss with you, and you'd better be on my side when I do.",
+                        response: "Take her side first. Sort out the details with your mom later, privately.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "My friend's husband...",
+                        translation: "Whatever her friend's husband did, you now need to do the same thing or better. This is a benchmark, not a story.",
+                        response: "Take mental notes. This is your new standard.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "I had lunch with [her name]",
+                        translation: "I had lunch with her and we talked about you. Everything you've done recently has been reviewed by a committee. I'm now delivering the findings.",
+                        response: "Listen carefully. The committee's verdict matters.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "My mom wants to come visit",
+                        translation: "My mom IS coming to visit. I'm framing it as her idea so you can't blame me. The dates are set. Smile.",
+                        response: "\"That sounds great. When is she coming?\" Do not sigh.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "We haven't seen [couple's name] in a while",
+                        translation: "We are making plans with them this week. I want you to be socially available and charming. Start mentally preparing.",
+                        response: "\"Let's set something up. This weekend?\"",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "How's your mom doing?",
+                        translation: "This is either genuine concern or a diplomatic way to open a conversation about something your mom did. Context clues are critical here.",
+                        response: "Answer honestly, then ask \"Why, did something happen?\" to figure out which version this is.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "I ran into [name] today",
+                        translation: "The name is significant. Pay attention to who it is. If it's someone from your past, buckle up. If it's one of her friends, you're about to get a report card.",
+                        response: "\"Oh yeah? How are they doing?\" Then listen for what's really being said.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "We should have people over",
+                        translation: "I've already planned a dinner party in my head. I need you to clean the garage, fix that thing I asked about three weeks ago, and be presentable by Saturday.",
+                        response: "\"Great idea. What do you need me to do?\" Then actually do all of it.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "Your friend seems nice",
+                        translation: "I have concerns about your friend that I am expressing with extreme sarcasm. I will elaborate shortly.",
+                        response: "Don't defend your friend yet. Ask \"What do you mean?\" and prepare for impact.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    }
+                ]
             },
             {
-                label: "I don't care",
-                patterns: ["i don't care", "i dont care", "i do not care"],
-                translation: "I DO care. Very much. But I want you to make the right decision on your own without me having to spell it out.",
-                response: "\"I think you do care, and your opinion matters to me. Let me go with [the option she's hinted at before].\" If no clue, pick the most thoughtful option — never the laziest one.",
-                level: "orange",
-                levelText: "Danger Level: ELEVATED"
+                name: "Household & Domestic",
+                entries: [
+                    {
+                        label: "I'll do it myself",
+                        translation: "You had your chance to help and you blew it. Now I'm doing it alone, and you will hear about this for weeks.",
+                        response: "\"No, let me. I should have done it already. I'm sorry.\"",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "It's not about the dishes",
+                        translation: "It is partly about the dishes, but mostly about a pattern of behavior that the dishes represent. Buckle up.",
+                        response: "\"You're right, it's bigger than the dishes. I hear you.\"",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "Can you take out the trash?",
+                        translation: "The trash needed to go out an hour ago. This is your final notice before it becomes evidence of your inability to see what needs to be done without being told.",
+                        response: "Take out the trash. Immediately. Without commentary.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "Did you even notice?",
+                        translation: "I did something to the house. Changed something. Cleaned something. Rearranged something. And you walked right past it. This is a major offense.",
+                        response: "Scan the room. Fast. If you can't find it, say \"Something looks different and I love it. Tell me what you did.\"",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "We need to organize the...",
+                        translation: "This is a weekend project that will consume your Saturday. Tools, containers, and a trip to the store are in your future. Clear your calendar.",
+                        response: "\"You're right. Let's knock it out this weekend.\"",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "The [thing] is broken again",
+                        translation: "Why haven't you fixed this yet? I mentioned it before. The fact that it's still broken says something about your priorities.",
+                        response: "Fix it today. Not tomorrow. Not this weekend. Today.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "I cleaned the whole house",
+                        translation: "I cleaned the whole house by myself. Again. You were doing something else while I did it. I noticed. You should have helped without being asked.",
+                        response: "\"Thank you. I should have helped. What else can I do?\" And then actually do something.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "I just mopped that floor",
+                        translation: "Do not step on that floor. Remove your shoes. Redirect the children. If I see one footprint, this is becoming a much larger conversation.",
+                        response: "Take off your shoes immediately. Alert the household.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "When are you going to fix that?",
+                        translation: "I asked you to fix this weeks ago. Every day you don't fix it, I'm adding it to a list that will eventually be read aloud to you.",
+                        response: "Give a specific day and time. Then follow through.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    }
+                ]
             },
             {
-                label: "Who was that?",
-                patterns: ["who was that", "who is that", "who's that"],
-                translation: "I already know exactly who that was. I'm giving you one chance to be honest. Choose your next words very carefully.",
-                response: "Full honesty, immediately. \"That was [name], from [context].\" Volunteer every detail. Do NOT say \"nobody\" or \"just a friend\" without elaborating. Transparency is survival.",
-                level: "red",
-                levelText: "Danger Level: EXTREME"
+                name: "Appearance & Shopping",
+                entries: [
+                    {
+                        label: "Are you really wearing that?",
+                        translation: "Go change. That outfit is not acceptable for where we're going. I shouldn't have to tell you this.",
+                        response: "Go change. Don't argue. Ask \"What should I wear?\" if you're unsure.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "Do I look fat in this?",
+                        translation: "Tell me I look amazing. There is only one correct answer. This is not a discussion, a debate, or an opportunity for constructive feedback.",
+                        response: "\"You look incredible.\" No hesitation. No qualifiers. No \"but.\"",
+                        level: "extreme",
+                        levelText: "Danger Level: EXTREME"
+                    },
+                    {
+                        label: "I have nothing to wear",
+                        translation: "I have a closet full of clothes, none of which meet my standards for this specific event. This may require a shopping trip. Do not suggest anything from the closet.",
+                        response: "\"Want to grab something new? I'll come with you.\"",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "Does this look okay?",
+                        translation: "I need validation, not a critique. Tell me it looks great. If you think it doesn't, keep that to yourself unless directly asked for specifics.",
+                        response: "\"You look great.\" Specificity helps: \"That color looks amazing on you.\"",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "I need new shoes",
+                        translation: "This is not a negotiation. This is a statement of fact. The shoes are already picked out. I just need you to not have an opinion about the price.",
+                        response: "\"Get whatever you want.\" You will not win this.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "We need to go to Target",
+                        translation: "We will be at Target for one to three hours. I have a list, but the list is a suggestion. The real shopping happens in the aisles we weren't planning to visit. Bring patience.",
+                        response: "Clear your schedule. Don't ask \"how long will this take?\"",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "I didn't spend that much",
+                        translation: "I spent more than you would be comfortable with, but I'm framing it in a way that makes it sound reasonable. Do not audit this purchase.",
+                        response: "\"I'm sure you got what you needed.\" Do not check the receipt.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "Can you hold my purse?",
+                        translation: "This is not a request. This is a mission. Hold it like it's a briefcase, not like it's on fire. Do not complain. Do not set it on the ground. Do not make a face.",
+                        response: "Take it with confidence. You're a man holding a purse, not a man with a problem.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    }
+                ]
             },
             {
-                label: "I just think it's funny how...",
-                patterns: ["i just think it's funny", "i just think its funny", "it's funny how", "its funny how"],
-                translation: "Nothing about this is funny. I am about to present a devastating argument and you will not recover easily.",
-                response: "Do NOT laugh. Say: \"You're right, and I hear you.\" Let her finish the entire thought. Do not interrupt, defend, or deflect. Apologize for the specific thing she brings up.",
-                level: "red",
-                levelText: "Danger Level: EXTREME"
+                name: "Texting & Digital",
+                entries: [
+                    {
+                        label: "K (via text)",
+                        translation: "This is the most dangerous text message in the English language. Something is very wrong. Call me immediately. Actually, don't call. Come home.",
+                        response: "Drop everything. Go home with flowers. Or at minimum, call and say \"Hey, are we okay?\"",
+                        level: "extreme",
+                        levelText: "Danger Level: EXTREME"
+                    },
+                    {
+                        label: "LOL (via text)",
+                        translation: "I did not laugh. I am acknowledging your message while doing something more important. Do not send a follow-up.",
+                        response: "Leave it alone. You got your acknowledgment. Move on.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "Okay. (via text, with period)",
+                        translation: "The period is doing a lot of heavy lifting in this message. I am upset, and the period is the written equivalent of a door closing firmly but not quite slamming.",
+                        response: "Call her. Texting will make this worse.",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "Haha (via text)",
+                        translation: "I am mildly amused. Don't read too much into it, but also don't think you're as funny as you think you are.",
+                        response: "You're fine. Just don't send five more jokes trying to top it.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "Sounds good (via text)",
+                        translation: "I've processed your message. I may or may not be fully on board, but I'm not going to get into it over text. We'll discuss in person.",
+                        response: "Accept this at face value unless the tone has been off all day.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "? (via text)",
+                        translation: "I sent you a message or asked a question and you didn't respond fast enough. This is a warning shot.",
+                        response: "Reply immediately to the original message. Do not acknowledge the question mark.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "Call me (via text)",
+                        translation: "Something has happened that is too important, too emotional, or too serious for text. Do not text back asking what it's about. Just call.",
+                        response: "Call her. Immediately. Not in five minutes.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "Nvm (via text)",
+                        translation: "I needed something from you and you took too long. I handled it myself, and I'm keeping score.",
+                        response: "\"No, what was it? I'm sorry I missed your message.\"",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "\uD83D\uDC4D (via text)",
+                        translation: "This emoji is not approval. This is the digital equivalent of \"whatever.\" I'm done with this conversation but not done being upset about it.",
+                        response: "This is not a thumbs up. Something is wrong. Address it gently.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    }
+                ]
             },
             {
-                label: "Five minutes",
-                patterns: ["five minutes", "5 minutes", "give me five", "give me 5"],
-                translation: "I will be ready in 25 to 45 minutes. Do NOT rush me. Use this time to wait patiently and without complaint.",
-                response: "\"Take your time, no rush.\" Then find something quiet to do. Do NOT pace, sigh, check your watch, or say \"I thought you said five minutes.\" Ever.",
-                level: "green",
-                levelText: "Danger Level: LOW"
+                name: "Compliments & Affection",
+                entries: [
+                    {
+                        label: "I love you",
+                        translation: "I genuinely love you. But there's a 30% chance a request for something is about to follow.",
+                        response: "\"I love you too.\" Say it first more often.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "You're so sweet",
+                        translation: "You did something thoughtful and I want to acknowledge it. Keep doing this. I'm keeping track of the good things too.",
+                        response: "This is a win. Accept it.",
+                        level: "none",
+                        levelText: "Danger Level: NONE"
+                    },
+                    {
+                        label: "That was really nice of you",
+                        translation: "You did something right without being asked. This is rare and I want to reward it with verbal affirmation so you do it again.",
+                        response: "\"You deserve it.\" Then keep doing thoughtful things.",
+                        level: "none",
+                        levelText: "Danger Level: NONE"
+                    },
+                    {
+                        label: "You look nice today",
+                        translation: "You look noticeably better than usual, which means you usually don't look this put-together. Take this as encouragement to step it up more often.",
+                        response: "\"Thanks. I'm trying to match your level.\"",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "Thank you (said warmly)",
+                        translation: "This is genuine gratitude. I see the effort you're putting in and I appreciate it. These moments are what keep us strong.",
+                        response: "\"Always.\" And mean it.",
+                        level: "none",
+                        levelText: "Danger Level: NONE"
+                    },
+                    {
+                        label: "Thank you (said coldly)",
+                        translation: "You have made a terrible mistake and I am using good manners as a weapon. The politeness is masking something serious.",
+                        response: "\"Hey, is everything okay? You don't seem like yourself.\"",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "You're such a good dad",
+                        translation: "This is one of the highest compliments I can give. I see what you do for our kids and it matters to me deeply.",
+                        response: "\"I learned from watching you with them.\" Trust me.",
+                        level: "none",
+                        levelText: "Danger Level: NONE"
+                    },
+                    {
+                        label: "I appreciate you",
+                        translation: "This is sincere. I may not say it enough, but I need you to know that what you do matters and I see it.",
+                        response: "\"That means a lot. I appreciate you too.\"",
+                        level: "none",
+                        levelText: "Danger Level: NONE"
+                    }
+                ]
             },
             {
-                label: "Are you really wearing that?",
-                patterns: ["are you really wearing that", "you're wearing that", "you gonna wear that"],
-                translation: "Go change. That outfit is not acceptable for where we're going. I shouldn't have to tell you this.",
-                response: "\"Good call, let me change.\" Go put on something nicer. If unsure what to wear, ask: \"What vibe are we going for?\" Do NOT defend the cargo shorts.",
-                level: "yellow",
-                levelText: "Danger Level: MODERATE"
+                name: "Daily Life & Small Talk",
+                entries: [
+                    {
+                        label: "How was work?",
+                        translation: "I want to connect with you. Give me a real answer, not \"fine.\" If something happened, share it. I want to be part of your world.",
+                        response: "Actually tell her about your day. She's asking because she cares.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "Did you eat?",
+                        translation: "I care about you. This is how I show love. If you haven't eaten, I may offer to make you something. Accept it graciously.",
+                        response: "\"Yeah, but nothing as good as what you make.\"",
+                        level: "none",
+                        levelText: "Danger Level: NONE"
+                    },
+                    {
+                        label: "I'm tired",
+                        translation: "I need you to pick up the slack tonight. Don't ask me what's for dinner. Don't ask where anything is. Figure it out and let me rest.",
+                        response: "\"Go sit down. I've got the kids and dinner tonight.\"",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "How was your day?",
+                        translation: "I want to talk about MY day, but I'm starting with you to be polite. Give a short answer, then ask me about mine with genuine interest.",
+                        response: "Answer briefly, then say \"How was yours?\" and actually listen.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "I had a long day",
+                        translation: "I need comfort, not solutions. Do not try to fix anything. Just listen, sympathize, and maybe offer a glass of wine or a back rub.",
+                        response: "\"I'm sorry. What happened?\" Then shut up and listen.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "What do you want for dinner?",
+                        translation: "I don't want to decide. I've made forty decisions today already. Give me a specific answer, not \"I don't care\" or \"whatever you want.\"",
+                        response: "Name a specific meal or restaurant. Commit to it. Don't waffle.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "Can you watch the kids for a bit?",
+                        translation: "I am leaving this house. I don't know when I'll be back. Do not call me unless there is blood or fire.",
+                        response: "\"Take all the time you need.\" Then actually parent. Don't call it babysitting.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "I need a minute",
+                        translation: "I am overstimulated, overwhelmed, or about to lose it. Give me physical and emotional space immediately. I will come back when I'm ready.",
+                        response: "Give her the space. Don't hover. Don't ask if she's okay every 30 seconds.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "I'm going to bed",
+                        translation: "I'm going to bed and the way I said it tells you everything about the state of our relationship right now. If I said it warmly, come join me. If I said it flatly, I'm going to bed angry and you should come check on me in ten minutes with an apology or a snack.",
+                        response: "Read the tone. Warm = follow her. Cold = give it ten minutes, then go apologize.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "The kids were crazy today",
+                        translation: "I have been through a war. I am exhausted, touched out, and running on fumes. I need you to take over and not ask stupid questions like \"what's for dinner.\"",
+                        response: "\"Go take a break. I've got them.\"",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "Did you lock the door?",
+                        translation: "Go check the door. I don't care if you're sure you locked it. I need you to physically verify it so I can sleep tonight.",
+                        response: "Get up and check the door. Don't say \"I'm sure I did.\"",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "I saw this thing online",
+                        translation: "I'm about to show you a purchase I want to make, a trip I want to plan, or a home project I want to start. The correct response involves enthusiasm.",
+                        response: "Show genuine interest. Ask questions. Do NOT say \"how much?\"",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "I have a headache",
+                        translation: "Not tonight. Don't push it.",
+                        response: "\"Can I get you some water or Advil?\" And leave it at that.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "We never go anywhere",
+                        translation: "Plan something. Soon. Not a sports bar. Somewhere I can wear a nice outfit and we can actually talk to each other like adults.",
+                        response: "Start planning something within the next 24 hours.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "I just want to stay in tonight",
+                        translation: "I want you to stay in with me. Not stay in and disappear to the other room. With me. On the couch. Talking or watching something I pick.",
+                        response: "\"Sounds perfect. What do you want to watch?\" Then don't touch your phone.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "We need to talk about the budget",
+                        translation: "You bought something you shouldn't have, or I want to buy something and I'm getting ahead of the objection. Either way, this is a negotiation.",
+                        response: "Listen first. Don't get defensive. This is a partnership conversation.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "Do you think she's pretty?",
+                        translation: "There is no safe answer to this question. Any level of agreement is a trap. Any level of disagreement sounds dishonest. Redirect to how beautiful YOUR WIFE is.",
+                        response: "\"She's fine, I guess. But she's not you.\"",
+                        level: "extreme",
+                        levelText: "Danger Level: EXTREME"
+                    },
+                    {
+                        label: "I need some space",
+                        translation: "Give me exactly enough space to miss you, but not so much that I think you don't care. This is a precision operation.",
+                        response: "Give her space. Check in once after a reasonable amount of time. Don't overdo it.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    }
+                ]
             },
             {
-                label: "Whatever",
-                patterns: ["whatever"],
-                translation: "This argument is over because I've decided I'm right. Continuing to discuss this would be unwise.",
-                response: "Stop talking. Let a few minutes pass. Then say: \"I've been thinking about what you said, and you made a good point.\" Reopen only when she's ready.",
-                level: "orange",
-                levelText: "Danger Level: ELEVATED"
+                name: "Entertainment & Leisure",
+                entries: [
+                    {
+                        label: "Sure, go watch the game",
+                        translation: "I'm not happy about it, but I'm letting it happen so I can bring it up later when I need leverage.",
+                        response: "\"Are you sure? I'd rather hang out with you.\" Even if you wouldn't.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "How long is this game?",
+                        translation: "I need a precise end time so I can plan when I get your attention back. If the game goes to overtime, that's your problem, not mine.",
+                        response: "Underestimate. \"About two hours\" buys goodwill.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "You're really going to play golf again?",
+                        translation: "I've calculated the number of hours you spend on hobbies versus the number of hours you spend helping at home, and the math is not in your favor.",
+                        response: "\"Want to do something together this weekend too? I'll plan it.\"",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "Go have fun with the guys",
+                        translation: "I want you to go, but I also want you to feel slightly guilty about it. Text me once while you're out to show you're thinking about me.",
+                        response: "Go, but text her something sweet halfway through. Come home at a reasonable hour.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "I don't want to watch that",
+                        translation: "We are not watching that. This is not a negotiation. Hand me the remote or suggest something we'll both enjoy, knowing that \"both enjoy\" means something I enjoy.",
+                        response: "\"What are you in the mood for?\" Then watch that.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "You've been on your phone all night",
+                        translation: "Put your phone down and pay attention to me. I've been trying to connect with you and you're scrolling instead of being present. This hurts.",
+                        response: "Put the phone face down. Immediately. Give her your eyes.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "Can we do something this weekend?",
+                        translation: "I need you to plan an activity that involves leaving the house and doing something together. \"Relaxing at home\" is not what I'm asking for.",
+                        response: "Suggest two or three specific options. Make one of them something she's mentioned wanting to do.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    }
+                ]
             },
             {
-                label: "Wow / That's nice",
-                patterns: ["wow", "that's nice", "that is nice", "thats nice"],
-                translation: "I could not be less interested, but I acknowledge that you are still talking.",
-                response: "Read the room. Wrap up your story quickly, then ask about her day. Say: \"But anyway — how was your day? What's going on with you?\"",
-                level: "yellow",
-                levelText: "Danger Level: MODERATE"
+                name: "Health, Wellness & Self",
+                entries: [
+                    {
+                        label: "I feel fat",
+                        translation: "I need reassurance, not a fitness plan. Tell me I'm beautiful. Do not suggest a diet, a workout, or that my jeans \"run small.\"",
+                        response: "\"You're beautiful. I mean that.\" Then change the subject to something that makes her feel good.",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "I'm stressed",
+                        translation: "I need support, not a solution. Listen to me vent. Don't try to fix it. Don't minimize it. Just be present and tell me it's going to be okay.",
+                        response: "\"I'm sorry. What's going on?\" Then just listen.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "Do you think I look different?",
+                        translation: "I've changed something subtle. My hair, my eyebrows, my nails, my skin routine. Find it. Compliment it. Your observational skills are being tested.",
+                        response: "Study her face. If you can't find it, say \"Something looks great. What did you do?\" with a smile.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "I should start working out",
+                        translation: "Support me without making it weird. Don't suddenly become my personal trainer. Don't agree too enthusiastically. Just say you'll do it with me.",
+                        response: "\"Want a workout partner? I'm in.\"",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "I need a girls' night",
+                        translation: "I love you, but I need a break from you specifically. This is healthy. Do not take it personally. Do not text me all night. Do not ask when I'll be home.",
+                        response: "\"You deserve it. Have the best time.\" Then handle everything at home without sending updates.",
+                        level: "low",
+                        levelText: "Danger Level: LOW"
+                    },
+                    {
+                        label: "I'm fine, just tired",
+                        translation: "I'm not fine and I'm not just tired. Something emotional is going on but I don't have the energy to open up yet. Check on me tomorrow.",
+                        response: "\"Okay. I'm here whenever you want to talk.\" Then follow up the next day.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    }
+                ]
             },
             {
-                label: "Thanks / Thank you",
-                patterns: ["thanks", "thank you", "thanks a lot"],
-                translation: "Context matters here. If said warmly: genuine gratitude. If said coldly: you have made a terrible mistake.",
-                response: "If warm tone: \"Of course, anytime.\" If cold tone: Stop. Think about what you just did or said. Say: \"Hey, is everything alright? I feel like something's off.\"",
-                level: "yellow",
-                levelText: "Danger Level: CHECK TONE"
-            },
-            {
-                label: "I have a headache",
-                patterns: ["i have a headache", "my head hurts", "headache"],
-                translation: "Not tonight. Don't push it.",
-                response: "\"Can I get you some water and ibuprofen?\" Then leave it at that. Be genuinely caring. Do NOT make it about you.",
-                level: "yellow",
-                levelText: "Danger Level: MODERATE"
-            },
-            {
-                label: "Sure / Sure, go ahead",
-                patterns: ["sure", "sure go ahead"],
-                translation: "I'm not happy about it, but I'm letting it happen so I can bring it up later when I need leverage.",
-                response: "\"Wait — are you actually okay with this, or are you just saying that? I'd rather we be on the same page.\" Give her a real chance to voice her concern now.",
-                level: "orange",
-                levelText: "Danger Level: ELEVATED"
-            },
-            {
-                label: "I love you",
-                patterns: ["i love you"],
-                translation: "I genuinely love you! ...but there's a 30% chance a request for something is about to follow.",
-                response: "\"I love you too.\" Say it with eye contact and mean it. If a request follows, do it cheerfully. She softened you up for a reason — respect the strategy.",
-                level: "green",
-                levelText: "Danger Level: LOW"
-            },
-            {
-                label: "We should... / Maybe we should...",
-                patterns: ["we should", "maybe we should"],
-                translation: "We ARE going to. This is not a suggestion. This is a decision that has already been made.",
-                response: "\"That's a great idea, let's do it.\" Start planning or agree enthusiastically. Do NOT say \"we'll see\" or \"let me think about it\" — the decision is made.",
-                level: "yellow",
-                levelText: "Danger Level: MODERATE"
-            },
-            {
-                label: "It's up to you / Your call",
-                patterns: ["it's up to you", "your call", "your decision"],
-                translation: "I already know the right answer. This is your chance to prove we're on the same wavelength. Choose poorly at your own risk.",
-                response: "Think about what SHE would pick, then choose that. If unsure: \"I'm leaning toward [her likely preference] — what do you think?\" Let her confirm you guessed right.",
-                level: "orange",
-                levelText: "Danger Level: ELEVATED"
-            },
-            {
-                label: "I was just asking",
-                patterns: ["i was just asking", "just asking"],
-                translation: "I was not just asking. I was making a point disguised as a question, and you missed it completely.",
-                response: "\"Wait — I think there's more to it than that. What's on your mind?\" Show her you know it wasn't just a question. Dig deeper, gently.",
-                level: "orange",
-                levelText: "Danger Level: ELEVATED"
-            },
-            {
-                label: "Forget it",
-                patterns: ["forget it", "just forget it"],
-                translation: "Do NOT forget it. I want you to think about this for the rest of the day. I'm done explaining, but this is far from over.",
-                response: "\"I don't want to forget it — this matters to me because you matter to me. Help me understand.\" Be gentle but persistent. She wants to know you'll fight for the conversation.",
-                level: "red",
-                levelText: "Danger Level: HIGH"
-            },
-            {
-                label: "You don't have to",
-                patterns: ["you don't have to", "you dont have to", "you do not have to"],
-                translation: "You absolutely have to. I'm being polite. If you take me at my word right now, you will regret it.",
-                response: "\"I want to.\" Then do the thing. With enthusiasm. She gave you a polite out — do NOT take it. This is a test of whether you show up voluntarily.",
-                level: "red",
-                levelText: "Danger Level: HIGH"
-            },
-            {
-                label: "I saw the funniest thing today",
-                patterns: ["i saw the funniest thing", "funniest thing today"],
-                translation: "This story is going to take a while. Sit down, make eye contact, and laugh at the right parts. There will be a test.",
-                response: "Put your phone down, look at her, and say: \"Tell me everything.\" React genuinely. Ask follow-up questions. Laugh. This is bonding time and she's inviting you in.",
-                level: "green",
-                levelText: "Danger Level: LOW"
-            },
-            {
-                label: "It doesn't matter",
-                patterns: ["it doesn't matter", "it doesnt matter", "it does not matter"],
-                translation: "It matters more than anything we've discussed this week. I'm just too exhausted to keep explaining it to someone who should already understand.",
-                response: "\"It matters to me because it matters to you. I'm sorry I didn't get it the first time — can you explain it once more? I'm really listening this time.\"",
-                level: "red",
-                levelText: "Danger Level: HIGH"
-            },
-            {
-                label: "I don't want anything for my birthday",
-                patterns: ["i don't want anything for my birthday", "don't get me anything", "dont get me anything", "i dont want anything"],
-                translation: "I want something thoughtful and specific. The fact that I have to tell you what it is defeats the entire purpose. Figure it out.",
-                response: "Secretly plan something meaningful. Pay attention to things she's mentioned wanting in the past 3 months. A heartfelt card + a gift that shows you listen > anything expensive.",
-                level: "red",
-                levelText: "Danger Level: EXTREME"
-            },
-            {
-                label: "We never go anywhere",
-                patterns: ["we never go anywhere", "we don't go anywhere", "we dont go anywhere"],
-                translation: "Plan something. Soon. Not a sports bar. Somewhere I can wear a nice outfit and post a photo that makes my friends jealous.",
-                response: "\"You're right. Let me plan something for this weekend.\" Then actually plan a real date — restaurant, dress code, the works. Bonus: make the reservation yourself.",
-                level: "yellow",
-                levelText: "Danger Level: MODERATE"
-            },
-            {
-                label: "Your mom called",
-                patterns: ["your mom called", "your mother called"],
-                translation: "Your mom called, and she said something that I need to discuss with you, and you'd better be on my side when I do.",
-                response: "\"What did she say?\" Listen fully. Then say: \"I'll talk to her.\" Default position: your wife's side. You can love your mom AND set boundaries. This is non-negotiable.",
-                level: "orange",
-                levelText: "Danger Level: ELEVATED"
-            },
-            {
-                label: "I already told you this",
-                patterns: ["i already told you", "i told you this", "i've already told you"],
-                translation: "I told you this at least twice. The fact that you don't remember proves you don't listen to me. This is now about more than the original topic.",
-                response: "\"You're right, you did tell me, and I'm sorry I didn't remember. That's on me.\" Do NOT ask her to repeat it — try to recall it yourself first, or own that you forgot.",
-                level: "red",
-                levelText: "Danger Level: HIGH"
-            },
-            {
-                label: "Where do you want to eat?",
-                patterns: ["where do you want to eat", "what do you want to eat", "where should we eat"],
-                translation: "I already know where I want to eat. I need you to guess correctly so it feels like your idea. Wrong answers will be rejected until you get there.",
-                response: "Offer TWO specific options (not \"I don't care\"): \"How about [place she's mentioned recently] or [her favorite cuisine]?\" If both rejected, say: \"Okay, where are you feeling? I'm up for anything.\"",
-                level: "yellow",
-                levelText: "Danger Level: MODERATE"
-            },
-            {
-                label: "I'll do it myself",
-                patterns: ["i'll do it myself", "ill do it myself", "i will do it myself"],
-                translation: "You had your chance to help and you blew it. Now I'm doing it alone, and you will hear about this for weeks.",
-                response: "\"No, please — let me help. I should have done it sooner and I'm sorry.\" Then take over immediately. Do NOT let her do it alone. This is a rescue mission.",
-                level: "red",
-                levelText: "Danger Level: HIGH"
-            },
-            {
-                label: "That's interesting",
-                patterns: ["that's interesting", "thats interesting", "that is interesting"],
-                translation: "That is not interesting at all. I'm being kind because I love you, but please wrap it up.",
-                response: "Take the hint. Wrap up quickly: \"Anyway, that's the short version.\" Then pivot: \"What about you — what's new?\" Give her the floor.",
-                level: "green",
-                levelText: "Danger Level: LOW"
-            },
-            {
-                label: "We'll see",
-                patterns: ["we'll see", "well see", "we will see"],
-                translation: "No. The answer is no. I'm just not saying it yet because I want you to hold on to hope before I take it away.",
-                response: "Accept the soft no gracefully. Say: \"Okay, just let me know.\" Do NOT keep bringing it up or trying to convince her. The verdict is in.",
-                level: "yellow",
-                levelText: "Danger Level: MODERATE"
-            },
-            {
-                label: "I'm not mad",
-                patterns: ["i'm not mad", "im not mad", "i am not mad"],
-                translation: "I am furious. I'm just collecting my thoughts so I can dismantle your argument with surgical precision when I'm ready.",
-                response: "\"I think you might be, and that's okay. I'd rather talk about it now than let it build up. What did I do?\" Brace yourself and listen without getting defensive.",
-                level: "red",
-                levelText: "Danger Level: EXTREME"
-            },
-            {
-                label: "It's not about the dishes",
-                patterns: ["it's not about the dishes", "its not about the dishes", "not about the dishes"],
-                translation: "It is partly about the dishes, but mostly about a pattern of behavior that the dishes represent. Buckle up.",
-                response: "\"You're right — it's bigger than that. I think you're saying I haven't been pulling my weight, and I hear you.\" Address the pattern, not just the dishes.",
-                level: "orange",
-                levelText: "Danger Level: ELEVATED"
-            },
-            {
-                label: "Do I look fat in this?",
-                patterns: ["do i look fat", "does this make me look fat", "do i look fat in this"],
-                translation: "Tell me I look amazing. There is only one correct answer. This is not a discussion, a debate, or an opportunity for honesty.",
-                response: "\"You look amazing.\" That's it. Full stop. Add specifics: \"That color looks great on you\" or \"That dress is perfect.\" Do NOT hesitate, stammer, or say \"you look fine.\"",
-                level: "red",
-                levelText: "Danger Level: EXTREME"
-            },
-            {
-                label: "I just want to stay in tonight",
-                patterns: ["i just want to stay in", "let's stay in", "lets stay in", "stay in tonight"],
-                translation: "I want you to stay in with me. Not stay in and play video games in another room. With me. On the couch. Talking.",
-                response: "\"That sounds perfect.\" Then sit WITH her. Put on something she likes. Make popcorn or pour some wine. Phones away. This is together time, not parallel alone time.",
-                level: "green",
-                levelText: "Danger Level: LOW"
-            },
-            {
-                label: "My friend's husband...",
-                patterns: ["my friend's husband", "my friends husband", "her husband"],
-                translation: "Whatever her friend's husband did, you now need to do the same thing or better. This is a benchmark, not a story.",
-                response: "\"That's really thoughtful of him.\" Then quietly take notes. Plan to do something similar (or better) within the next week. She's handing you the playbook — use it.",
-                level: "orange",
-                levelText: "Danger Level: ELEVATED"
-            },
-            {
-                label: "When you get a chance",
-                patterns: ["when you get a chance", "whenever you get a chance", "if you get a chance"],
-                translation: "Right now. I mean right now. \"When you get a chance\" is a courtesy I'm extending so you feel like you had a choice.",
-                response: "\"I'll do it right now.\" Then do it. Immediately. Not after this episode. Not in five minutes. Now. She gave you the polite version — honor it.",
-                level: "yellow",
-                levelText: "Danger Level: MODERATE"
-            },
-            {
-                label: "I thought you were going to...",
-                patterns: ["i thought you were going to", "thought you were gonna", "weren't you going to"],
-                translation: "You told me you would do this and you didn't. I'm keeping a record. This is being added to the file.",
-                response: "\"You're right, I dropped the ball. Let me take care of it right now.\" Then DO it. No excuses, no \"I was going to.\" Action speaks. Follow through is everything.",
-                level: "orange",
-                levelText: "Danger Level: ELEVATED"
-            },
-            {
-                label: "I guess",
-                patterns: ["i guess", "i guess so"],
-                translation: "I disagree completely, but I don't have the energy to fight about it. Don't mistake my silence for agreement.",
-                response: "\"That doesn't sound like a yes. Tell me what you're really thinking — I want to know.\" Give her space to disagree openly. Make it safe to say no.",
-                level: "orange",
-                levelText: "Danger Level: ELEVATED"
-            },
-            {
-                label: "Noticed you liked her photo",
-                patterns: ["noticed you liked her photo", "liked her photo", "liked her post", "liked her picture"],
-                translation: "I have conducted a full investigation and this is the opening statement. Your defense will need to be flawless.",
-                response: "Do NOT say \"it was just a like.\" Say: \"I can see how that looks, and I understand why that bothers you. You're the only one I care about.\" Then unlike it if she wants.",
-                level: "red",
-                levelText: "Danger Level: EXTREME"
-            },
-            {
-                label: "LOL (via text)",
-                patterns: ["lol"],
-                translation: "I did not laugh. I am acknowledging your message while doing something more important. Do not send a follow-up.",
-                response: "Take the hint. Don't double-text. Wait for her to re-engage when she's ready. If you need her attention, call instead of texting more.",
-                level: "green",
-                levelText: "Danger Level: LOW"
-            },
-            {
-                label: "K (via text)",
-                patterns: [" k", "\"k\"", "k."],
-                translation: "This is the most dangerous text message in the English language. Something is very wrong. Call me immediately. Actually, don't call. Come home.",
-                response: "Call her immediately. If she doesn't answer, go home. When you see her, say: \"I could tell something was wrong. I'm here. Talk to me.\" Do NOT text back \"k\" — that's mutually assured destruction.",
-                level: "red",
-                levelText: "Danger Level: EXTREME"
-            },
-            {
-                label: "I need some space",
-                patterns: ["i need some space", "need some space", "give me some space"],
-                translation: "Give me exactly enough space to miss you, but not so much that I think you don't care. This is a precision operation.",
-                response: "\"I understand. I'll be right here when you're ready.\" Give her 30-60 minutes, then check in gently: \"Just wanted you to know I'm thinking about you.\" Don't hover, but don't vanish.",
-                level: "orange",
-                levelText: "Danger Level: ELEVATED"
-            },
-            {
-                label: "I'm going to bed",
-                patterns: ["i'm going to bed", "im going to bed", "i am going to bed", "going to bed"],
-                translation: "I'm going to bed angry. If you're smart, you'll come check on me in ten minutes with an apology or a snack.",
-                response: "Wait 10 minutes, then go to her with a glass of water or her favorite snack. Say: \"I'm sorry about earlier. I love you.\" A small gesture here prevents a big fight tomorrow.",
-                level: "yellow",
-                levelText: "Danger Level: MODERATE"
-            },
-            {
-                label: "Can you watch the kids for a bit?",
-                patterns: ["can you watch the kids", "watch the kids for a bit", "watch the kids"],
-                translation: "I am leaving this house. I don't know when I'll be back. Do not call me unless there is blood or fire.",
-                response: "\"Of course, take all the time you need.\" Then actually parent — don't just put on a screen. She needs a break. When she gets back, don't ask \"what took so long.\"",
-                level: "green",
-                levelText: "Danger Level: LOW"
-            },
-            {
-                label: "I had lunch with [her name]",
-                patterns: ["i had lunch with", "had lunch with her", "had coffee with"],
-                translation: "I had lunch with her and we talked about you. Everything you've done recently has been reviewed by a committee. I'm now delivering the findings.",
-                response: "\"How is she? How was lunch?\" Then listen carefully — the real message is coming. Don't get defensive. Say: \"Is there something you want me to work on?\" Show you can take feedback.",
-                level: "orange",
-                levelText: "Danger Level: ELEVATED"
-            },
-            {
-                label: "Remember when you said...?",
-                patterns: ["remember when you said", "remember when you told me", "you once said"],
-                translation: "I am about to use your own words against you with devastating accuracy. I have a photographic memory for things you wish I'd forget.",
-                response: "Do NOT say \"I never said that.\" You did. Say: \"You're right, I did say that. I should've followed through, and I'm sorry.\" Own it. She has receipts you don't even know about.",
-                level: "red",
-                levelText: "Danger Level: EXTREME"
-            },
-            {
-                label: "You always do this",
-                patterns: ["you always do this", "you always", "you never"],
-                translation: "This specific thing you just did has triggered a comprehensive review of every similar offense in our entire relationship. Each one will now be addressed.",
-                response: "Do NOT say \"I don't always...\" Instead: \"I hear you. There's a pattern here and I need to be better about it. What would help?\" Acknowledge the pattern, don't argue the word \"always.\"",
-                level: "red",
-                levelText: "Danger Level: HIGH"
-            },
-            {
-                label: "I don't want to fight",
-                patterns: ["i don't want to fight", "i dont want to fight", "i do not want to fight"],
-                translation: "I am already fighting. This is just the opening statement letting you know the trial has begun. Your plea doesn't matter.",
-                response: "\"I don't want to fight either. I want to understand what's wrong so we can fix it together.\" Lower your voice, stay calm, and let her lead. You're in her courtroom now.",
-                level: "red",
-                levelText: "Danger Level: HIGH"
-            },
-            {
-                label: "It's not a big deal",
-                patterns: ["it's not a big deal", "its not a big deal", "not a big deal"],
-                translation: "It is the biggest deal. I'm minimizing it right now so that when I bring it up again later, you can't say I was overreacting, because look how calm I was the first time.",
-                response: "\"If it's on your mind, it's a big deal to me. Let's talk about it now so it doesn't build up.\" Take it seriously right now and you prevent the explosion later.",
-                level: "red",
-                levelText: "Danger Level: HIGH"
+                name: "The Wholesome Ones",
+                entries: [
+                    {
+                        label: "I'm really proud of you",
+                        translation: "This is 100% real. I see how hard you're working and I want you to know it doesn't go unnoticed. This is love.",
+                        response: "Let it land. Say \"That means everything to me.\"",
+                        level: "none",
+                        levelText: "Danger Level: NONE"
+                    },
+                    {
+                        label: "I'm glad I married you",
+                        translation: "You did something right. Maybe something small, maybe something big. But in this moment, I chose you and I'd choose you again. Soak this in.",
+                        response: "\"Best decision I ever made was marrying you.\" Mean it.",
+                        level: "none",
+                        levelText: "Danger Level: NONE"
+                    }
+                ]
             }
         ];
 
-        // Populate the dropdown
+        // Build the dropdown with optgroups
         const select = document.getElementById('phraseSelect');
-        translations.forEach((entry, index) => {
-            const option = document.createElement('option');
-            option.value = index;
-            option.textContent = entry.label;
-            select.appendChild(option);
+        categories.forEach(cat => {
+            const group = document.createElement('optgroup');
+            group.label = cat.name;
+            cat.entries.forEach((entry, i) => {
+                const option = document.createElement('option');
+                option.value = JSON.stringify({ cat: cat.name, idx: i });
+                option.textContent = `"${entry.label}"`;
+                group.appendChild(option);
+            });
+            select.appendChild(group);
         });
 
-        function selectPhrase() {
-            const select = document.getElementById('phraseSelect');
-            const index = select.value;
-            if (index === '') return;
-            document.getElementById('input').value = translations[index].label;
-            translate();
-        }
-
-        function normalize(text) {
-            return text.toLowerCase().trim().replace(/[.,!?]+$/g, '');
-        }
-
         function translate() {
-            const input = document.getElementById('input').value;
+            const select = document.getElementById('phraseSelect');
             const resultSection = document.getElementById('result');
+            const saidText = document.getElementById('saidText');
             const translationEl = document.getElementById('translation');
             const warningEl = document.getElementById('warning');
-            const responseSection = document.getElementById('responseSection');
             const responseText = document.getElementById('responseText');
 
-            if (!input.trim()) return;
+            if (!select.value) return;
 
-            const normalizedInput = normalize(input);
+            const { cat, idx } = JSON.parse(select.value);
+            const category = categories.find(c => c.name === cat);
+            if (!category) return;
+            const entry = category.entries[idx];
+            if (!entry) return;
 
-            let matched = null;
-            for (const entry of translations) {
-                for (const pattern of entry.patterns) {
-                    if (normalizedInput.includes(pattern)) {
-                        matched = entry;
-                        break;
-                    }
-                }
-                if (matched) break;
-            }
-
-            if (matched) {
-                translationEl.textContent = matched.translation;
-                warningEl.innerHTML = `<span class="warning-level level-${matched.level}">${matched.levelText}</span>`;
-                responseText.textContent = matched.response;
-                responseSection.style.display = 'block';
-            } else {
-                translationEl.textContent = "Hmm, I don't have a translation for that one. But if she said it with \"that tone\"... proceed with caution.";
-                warningEl.innerHTML = '<span class="warning-level level-yellow">Danger Level: UNKNOWN - STAY ALERT</span>';
-                responseText.textContent = "When in doubt: \"I can tell this is important to you, and I want to understand. Talk to me.\" Then listen. Really listen.";
-                responseSection.style.display = 'block';
-            }
+            saidText.textContent = `"${entry.label}"`;
+            translationEl.textContent = entry.translation;
+            warningEl.innerHTML = `<span class="warning-level level-${entry.level}">${entry.levelText}</span>`;
+            responseText.textContent = entry.response;
 
             resultSection.classList.add('visible');
         }
 
-        document.getElementById('input').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                translate();
-            }
-        });
+        // Also translate on dropdown change
+        document.getElementById('phraseSelect').addEventListener('change', translate);
     </script>
 </body>
 </html>
