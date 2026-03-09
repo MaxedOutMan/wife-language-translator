@@ -16,7 +16,7 @@
 
         body {
             font-family: 'League Spartan', sans-serif;
-            background: #2e2e36;
+            background: #f2f1ed;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -26,9 +26,9 @@
         }
 
         .container {
-            background: #3a3a44;
+            background: #ffffff;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 40px rgba(46,46,54,0.08), 0 1px 3px rgba(46,46,54,0.04);
             max-width: 680px;
             width: 100%;
             padding: 40px;
@@ -38,7 +38,7 @@
         h1 {
             font-family: 'Alata', sans-serif;
             font-size: 2.2rem;
-            color: #ffffff;
+            color: #2e2e36;
             margin-bottom: 4px;
         }
 
@@ -49,17 +49,17 @@
         }
 
         .subtitle {
-            color: #e4e7f4;
+            color: #6b6b76;
             font-size: 0.95rem;
             margin-bottom: 30px;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         label {
             display: block;
             text-align: left;
             font-weight: 600;
-            color: #e4e7f4;
+            color: #2e2e36;
             margin-bottom: 10px;
             font-size: 0.95rem;
             font-family: 'League Spartan', sans-serif;
@@ -68,36 +68,36 @@
         select {
             width: 100%;
             padding: 14px 16px;
-            border: 2px solid #0c6175;
+            border: 2px solid #d1d0cc;
             border-radius: 12px;
             font-size: 1rem;
             font-family: 'League Spartan', sans-serif;
-            background: #2e2e36;
-            color: #e4e7f4;
+            background: #ffffff;
+            color: #2e2e36;
             cursor: pointer;
             transition: border-color 0.3s;
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231aafe2' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230c6175' stroke-width='2' fill='none'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 16px center;
         }
 
         select:focus {
             outline: none;
-            border-color: #1aafe2;
+            border-color: #0c6175;
         }
 
         select optgroup {
             font-weight: 700;
             color: #de303d;
-            background: #3a3a44;
+            background: #ffffff;
             font-family: 'League Spartan', sans-serif;
         }
 
         select option {
             font-weight: 400;
-            color: #e4e7f4;
-            background: #2e2e36;
+            color: #2e2e36;
+            background: #ffffff;
             padding: 6px;
         }
 
@@ -126,8 +126,8 @@
         }
 
         .result-section {
-            background: #2e2e36;
-            border: 1px solid #0c6175;
+            background: #f8f7f5;
+            border: 1px solid #e2e1dd;
             border-radius: 16px;
             padding: 24px;
             margin-top: 16px;
@@ -145,7 +145,7 @@
 
         .result-label {
             font-weight: 600;
-            color: #1aafe2;
+            color: #0c6175;
             margin-bottom: 6px;
             font-size: 0.85rem;
             text-transform: uppercase;
@@ -156,12 +156,12 @@
             font-family: 'Alata', sans-serif;
             font-size: 1.35rem;
             font-style: italic;
-            color: #ffffff;
+            color: #2e2e36;
         }
 
         .translation-text {
             font-size: 1.05rem;
-            color: #e4e7f4;
+            color: #3a3a44;
             line-height: 1.65;
             font-weight: 400;
         }
@@ -187,9 +187,6 @@
             color: #ffffff;
             animation: pulse-glow 1.5s ease-in-out infinite;
         }
-        .level-checktone { background: #f8a700; color: #ffffff; }
-        .level-unknown { background: #2e2e36; color: #e4e7f4; border: 1px solid #e4e7f4; }
-
         @keyframes pulse-glow {
             0%, 100% {
                 box-shadow: 0 0 6px rgba(222, 48, 61, 0.5);
@@ -200,8 +197,8 @@
         }
 
         .response-section {
-            background: rgba(26, 175, 226, 0.08);
-            border: 1px solid rgba(26, 175, 226, 0.25);
+            background: rgba(12, 97, 117, 0.05);
+            border: 1px solid rgba(12, 97, 117, 0.15);
             border-radius: 12px;
             padding: 16px;
             margin-top: 16px;
@@ -209,7 +206,7 @@
 
         .response-label {
             font-weight: 600;
-            color: #1aafe2;
+            color: #0c6175;
             margin-bottom: 6px;
             font-size: 0.85rem;
             text-transform: uppercase;
@@ -218,16 +215,37 @@
 
         .response-text {
             font-size: 1rem;
-            color: #e4e7f4;
+            color: #3a3a44;
             line-height: 1.55;
             font-weight: 400;
         }
 
         .footer {
             margin-top: 24px;
-            color: #555;
+            color: #9a9a9a;
             font-size: 0.8rem;
             font-weight: 300;
+        }
+
+        .footer a {
+            color: #de303d;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .branding {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e8e7e3;
+            font-size: 0.75rem;
+            color: #b0b0b0;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -262,6 +280,7 @@
         </div>
 
         <div class="footer">For entertainment purposes only. Results not guaranteed. Good luck.</div>
+        <div class="branding">Maxed-Out Man</div>
     </div>
 
     <script>
@@ -921,6 +940,67 @@
                 ]
             },
             {
+                name: "Connection & Intimacy",
+                entries: [
+                    {
+                        label: "I just need you to listen",
+                        translation: "Do not offer a single solution. Do not try to fix this. I need to feel heard, not managed. Your job right now is to be a wall I can talk to that occasionally says 'that sounds really hard.'",
+                        response: "Sit down. Make eye contact. Say 'I'm listening.' Then actually do it.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "We don't talk anymore",
+                        translation: "We talk every day about schedules, kids, and logistics. That's not what I mean. I miss the conversations we used to have before life got so busy. I miss YOU.",
+                        response: "Put the phone down tonight and ask her a real question about her life. Not 'how was your day' but something deeper.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "You never notice anything",
+                        translation: "I put effort into something for you or for us, and you walked right past it. The thing I did isn't the point. The point is that you're not paying attention to me.",
+                        response: "'You're right, I missed it. Show me.' Then make a mental note to start looking.",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "When was the last time we went on a date?",
+                        translation: "This is not a trivia question. This is an indictment. The answer is too long ago, and she's been waiting for you to fix that without being asked.",
+                        response: "Don't answer the question. Say 'Let's fix that this week' and then actually plan something.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "I miss us",
+                        translation: "Something has shifted between us and I feel it. We're roommates running a household instead of partners building a life. I need you to feel it too and do something about it.",
+                        response: "'I miss us too. What do you need from me?' Then follow through on whatever she says.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "You used to...",
+                        translation: "I am comparing the man I married to the man sitting in front of me right now, and the current version is falling short in a specific area I'm about to name.",
+                        response: "Don't get defensive. She's telling you exactly what she needs. Listen and bring that version of yourself back.",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "Do you even find me attractive?",
+                        translation: "I have not felt desired by you in a while. This is not about my appearance. This is about whether you still see me the way you used to. I need reassurance, not logic.",
+                        response: "'Are you kidding? Come here.' Then show her. Words alone won't fix this one.",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "I feel like we're just roommates",
+                        translation: "We manage a household together, but the romance is missing. I'm telling you this because I still want more, and that's actually a good sign. If I'd stopped caring, I wouldn't bring it up.",
+                        response: "This is a gift disguised as a complaint. She's fighting FOR the marriage. Meet her there.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    }
+                ]
+            },
+            {
                 name: "Daily Life & Small Talk",
                 entries: [
                     {
@@ -1106,6 +1186,60 @@
                 ]
             },
             {
+                name: "The Unspoken Rules",
+                entries: [
+                    {
+                        label: "I shouldn't have to tell you",
+                        translation: "The fact that I have to explain what needs to be done means you're not paying attention to the life we share. I want a partner who sees what I see without a briefing.",
+                        response: "She's right. Start looking around the house, the calendar, and her face for what needs doing before she has to ask.",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "It would be nice if...",
+                        translation: "I am telling you exactly what I want in the gentlest possible way. If you ignore this, the next version will not be gentle.",
+                        response: "She just handed you the answer key. Use it.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "I just don't understand why...",
+                        translation: "I understand perfectly. I'm giving you a chance to explain yourself before I explain it for you, and my version will be less flattering.",
+                        response: "Answer carefully and honestly. She already has her own theory.",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "I'm not your mother",
+                        translation: "You have asked me to remind you, manage you, or clean up after you one too many times. I am your wife, not your assistant. Handle your own responsibilities.",
+                        response: "Don't joke. Don't deflect. Say 'You're right. I'll handle it.' And then handle it permanently.",
+                        level: "high",
+                        levelText: "Danger Level: HIGH"
+                    },
+                    {
+                        label: "Never mind, I'll ask someone else",
+                        translation: "I came to you first because you're my person. You either said no, made it complicated, or weren't available. Now someone else gets to be the hero and you get to think about that.",
+                        response: "'Wait. I want to help. Tell me what you need.'",
+                        level: "elevated",
+                        levelText: "Danger Level: ELEVATED"
+                    },
+                    {
+                        label: "That's interesting",
+                        translation: "What you just said is either completely wrong or completely tone-deaf, and I'm choosing diplomacy over honesty right now. Read my face for the real answer.",
+                        response: "Stop talking. Read her expression. Adjust course.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    },
+                    {
+                        label: "If you want to",
+                        translation: "I want you to want to. If you only do it because I asked, it doesn't count. I need this to come from you.",
+                        response: "'I'd love to.' Enthusiasm matters more than the activity.",
+                        level: "moderate",
+                        levelText: "Danger Level: MODERATE"
+                    }
+                ]
+            },
+            {
                 name: "Health, Wellness & Self",
                 entries: [
                     {
@@ -1166,6 +1300,48 @@
                         label: "I'm glad I married you",
                         translation: "You did something right. Maybe something small, maybe something big. But in this moment, I chose you and I'd choose you again. Soak this in.",
                         response: "\"Best decision I ever made was marrying you.\" Mean it.",
+                        level: "none",
+                        levelText: "Danger Level: NONE"
+                    },
+                    {
+                        label: "I feel safe with you",
+                        translation: "This is one of the deepest things a woman can say to her husband. She is telling you that your presence gives her peace. Protect this feeling with everything you have.",
+                        response: "'You always will be.' Then keep being the man who earned that trust.",
+                        level: "none",
+                        levelText: "Danger Level: NONE"
+                    },
+                    {
+                        label: "You're a good man",
+                        translation: "I see your character, not just your achievements. The way you treat people, the way you handle hard things, the way you show up. I notice all of it.",
+                        response: "'I'm trying to be. You make me want to be.'",
+                        level: "none",
+                        levelText: "Danger Level: NONE"
+                    },
+                    {
+                        label: "I love watching you with the kids",
+                        translation: "The way you engage with our children fills me with something I can't quite put into words. It makes me love you more than you know.",
+                        response: "'They make it easy. So do you.'",
+                        level: "none",
+                        levelText: "Danger Level: NONE"
+                    },
+                    {
+                        label: "Thank you for working so hard",
+                        translation: "I see the weight you carry and I don't take it for granted. I know the sacrifices you make for our family, and I want you to know they matter.",
+                        response: "'I'd do it all again. This family is everything.'",
+                        level: "none",
+                        levelText: "Danger Level: NONE"
+                    },
+                    {
+                        label: "I prayed for someone like you",
+                        translation: "You are the answer to something I asked God for before I even knew you existed. This is as deep as it gets.",
+                        response: "Let this one sit in your chest. Say 'God knew what He was doing putting us together.'",
+                        level: "none",
+                        levelText: "Danger Level: NONE"
+                    },
+                    {
+                        label: "You make me laugh",
+                        translation: "In a world that exhausts me, you still bring me joy. Don't ever stop being the one who makes me smile.",
+                        response: "Keep being that guy. It matters more than you think.",
                         level: "none",
                         levelText: "Danger Level: NONE"
                     }
